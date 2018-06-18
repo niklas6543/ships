@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="a site to play battleship">
+		<meta name="author" content="christian">
+		<meta name="keywords" content="schiffeversenken, battleship, ship game">
+		<title>battleship</title>
+		<link rel="stylesheet" type="text/css" href="index.css" />
+		<!-- include the ship.js -->
+		<!--<script src="js/ships.js"></script>-->
+		<script src="js/BattleField.js"></script>
+		<script src="js/Field.js"></script>
+		<script src="js/Ship.js"></script>
+	</head>
+	<body>
+		<h2>Mein Feld</h2>
+		<div id="myfield"></div>
+		<h2>Gegner Feld</h2>
+		<div id="enemyField"></div>
+		<script type="text/javascript">
+			mb = new BattleField(10, 10);
+			mb.show('myfield');
+			// b.clearField();
+			eb = new BattleField(10, 10);
+			eb.show('enemyField');
+		</script>
+	</body>
+</html>

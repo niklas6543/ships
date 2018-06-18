@@ -1,0 +1,6 @@
+*.pyc
+__pycache__/
+.gitconfig
+*.log
+frontend/run.sh 
+
