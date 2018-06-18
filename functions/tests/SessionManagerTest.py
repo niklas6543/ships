@@ -21,6 +21,14 @@ import time
 print("creating sessionManager")
 sessionManager = SessionManager.SessionManager()
 
+
+print("list available users") # doing this first to clear old sessions
+for user in sessionManager.getAvailableUsers():
+    print('\tid ' + str(user.getId()))
+    print('\tname ' + user.getName())
+    print('\tcookie lenght ' + str(len(user.getCookie())))
+    print('\tsessionStart ' + str(user.getSessionStart()) + '\n')
+
 print("creating 3 players")
 player0 = Player.Player(None, "testUser0", None, time.time())
 player1 = Player.Player(None, "testUser1", None, time.time())

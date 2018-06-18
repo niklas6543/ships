@@ -7,6 +7,7 @@ import time
 
 TABLE_NAME = "tbl_users"
 COOKIE_LENGHT = 128
+COOKIE_TIMEOUT_SECONDS = 1
 
 class SessionManager(object):
     """docstring for SessionManager."""
@@ -18,13 +19,17 @@ class SessionManager(object):
     def getAvailableUsers(self):
         users = []
         sql = "SELECT * FROM " + TABLE_NAME
-        cursor = self.db.getCurser()
         try:
+            # stored procdure hat delete session older than now - COOKIE_TIMEOUT_SECONDS
+            rotineCurser = self.db.getCurser()
+            rotineCurser.callproc('clearSessions', [COOKIE_TIMEOUT_SECONDS])
+            #self.db.getDatabaseHandle.commit()
+
+            cursor = self.db.getCurser()
             cursor.execute(sql)
             results = cursor.fetchall()
             for row in results:
                 users.append(Player.Player(id=row[0], name=row[1], sessionStart=row[2], cookie=row[3]))
-
             cursor.close()
         except Exception as e:
             raise
