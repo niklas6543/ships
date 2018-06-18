@@ -9,3 +9,7 @@ We are using [python3.5](https://www.python.org/downloads/release/python-350/).
 ![Tornado logo](doc/tornado.png)
 
 For the webstuff we are using the Tornado framework.
+
+![mysql logo](doc/mariadb.png)
+
+As our database we are using mariadb.
