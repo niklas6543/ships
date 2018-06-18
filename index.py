@@ -15,7 +15,7 @@ class MainHandler(web.RequestHandler):
     def get(self):
         #loader = template.Loader('./templates')
         #self.write(loader.load('home.html').generate(myvalue='hallo welt',))
-        self.render('home.html', myvalue="Hello, world!")
+        self.render('index.html')
 
 
 if __name__ == "__main__":

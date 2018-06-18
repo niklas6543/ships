@@ -2,18 +2,23 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="description" content="a site to play battleship">
-		<meta name="author" content="christian">
-		<meta name="keywords" content="schiffeversenken, battleship, ship game">
-		<title>battleship</title>
-		<link rel="stylesheet" type="text/css" href="index.css" />
+
+		<title>Battleship</title>
+
+		<script src="{{ static_url('bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ static_url('jquery/jquery-3.1.0.min.js') }}"></script>
+        <link rel="stylesheet" href="{{ static_url('bootstrap/css/bootstrap.min.css') }}" />
+
 		<!-- include the ship.js -->
 		<!--<script src="js/ships.js"></script>-->
-		<script src="js/BattleField.js"></script>
-		<script src="js/Field.js"></script>
-		<script src="js/Ship.js"></script>
+		<script src="{{ static_url('js/BattleField.js') }}"></script>
+		<script src="{{ static_url('js/Field.js') }}"></script>
+		<script src="{{ static_url('js/Ship.js') }}"></script>
+        <meta charset="UTF-8" />
+
 	</head>
 	<body>
+		<h1>Ships</h1>
 		<h2>Mein Feld</h2>
 		<div id="myfield"></div>
 		<h2>Gegner Feld</h2>
