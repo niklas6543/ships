@@ -43,7 +43,7 @@ class BattleField {
           // and then wait for the move of the openent
           this.innerHTML = '>|<';
         });
-        this.m_filed[i][j].btn = showShip;
+        //this.m_filed[i][j].btn = showShip;
         parent.appendChild(showShip);
       }
       var newLine = document.createElement('br');
