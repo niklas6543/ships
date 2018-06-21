@@ -5,25 +5,45 @@
 
 from tornado import template, ioloop, web
 import json
-from functions.BattleField import *
+#from functions.BattleField import *
+from functions import SessionManager
+from functions import Player
 
 
 
 class CheckerHandler(web.RequestHandler):
+
+    def initialize(self):
+        self.sessionManager = SessionManager.SessionManager()
+
+    def on_finish(self):
+        self.sessionManager.close()
+
+    @web.asynchronous
+    def post(self):
+        print("nice")
+        if self.get_argument('name', default=None) is not None:
+            print(self.get_argument('name', default=None))
+            player = Player.Player(name=self.get_argument('name'))
+            self.sessionManager.startSession(player)
+            #self.set_secure_cookie(SessionManager.COOKIE_NAME, player.getCookie())
+        self.finish()
+
     @web.asynchronous
     def get(self):
-        print(self.get_argument('showPlayers'))
-        if not self.get_secure_cookie("mycookie"):
-            self.set_secure_cookie("mycookie", "myvalue")
-        #print("pi1 " + str(pi1))
-        #do_find_one(self,pi1)
-        d = {
-            'first_name': 'Guido',
-            'second_name': 'Rossum',
-            'titles': ['BDFL', 'Developer'],
-        }
+        #print(self.get_argument('show'))
 
-        self.write(json.dumps(d))
+        if self.get_argument('show',  default=None) is not None:
+            players = self.sessionManager.getAvailableUsers()
+            for player in players:
+                self.write(json.dumps(player.toPublicJson()))
+        else:
+            d = True
+
+        #if not self.get_secure_cookie("mycookie"):
+            #self.set_secure_cookie("mycookie", "myvalue")
+
+
         self.finish()  # Without this the client's request will hang
 
 if __name__ == "__main__":

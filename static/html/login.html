@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="login.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<form id="form" action="http://localhost:4444" method="post">
+			<input name="name" value="show">
+			<input type="submit" value="Send Me!">
+		</form>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			var $form = $('form');
+			$form.submit(function(){
+				$.post($(this).attr('action'), $(this).serialize(), function(response){
+							// do something here on success
+							alert(response);
+				},'json');
+				return false;
+			});
+		});
+		</script>
+	</body>
+</html>

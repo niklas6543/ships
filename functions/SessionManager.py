@@ -1,13 +1,14 @@
 #!/user/bin/python3.5
 
-import db
-import Player
+from . import db
+from . import Player
 import os
 import time
 
 TABLE_NAME = "tbl_users"
 COOKIE_LENGHT = 128
-COOKIE_TIMEOUT_SECONDS = 1
+COOKIE_TIMEOUT_SECONDS = 30
+COOKIE_NAME = "login"
 
 class SessionManager(object):
     """manage the userenities."""

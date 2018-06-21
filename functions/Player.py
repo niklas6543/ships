@@ -5,7 +5,7 @@ class Player(object):
     docstring for Player.
     A entity Class for the session handling.
     """
-    def __init__(self, id, name, cookie, sessionStart):
+    def __init__(self, name, id=None, cookie=None, sessionStart=None):
         self.name = name
         self.id = id
         self.cookie = cookie
@@ -28,3 +28,10 @@ class Player(object):
 
     def setSessionStart(self, sessionStart):
         self.sessionStart = sessionStart
+
+    def toPublicJson(self):
+        re = {
+            'id' : self.getId(),
+            'name' : self.getName()
+        }
+        return re
