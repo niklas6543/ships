@@ -3,4 +3,4 @@ __pycache__/
 .gitconfig
 *.log
 frontend/run.sh 
-
+.idea

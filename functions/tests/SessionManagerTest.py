@@ -46,6 +46,17 @@ for user in sessionManager.getAvailableUsers():
     print('\tcookie lenght ' + str(len(user.getCookie())))
     print('\tsessionStart ' + str(user.getSessionStart()) + '\n')
 
+print('find user ' + player0.getName() +' by cookie ')
+
+#print(player0.getCookie())
+foundPlayer = sessionManager.getPlayerByCookie(player1.getCookie())
+
+print('found ' + str(len(foundPlayer)) + ' players')
+
+if len(foundPlayer) >= 1:
+    print('found player ' + foundPlayer[0].getName())
+else:
+    print("no player found")
 
 print('closing sessionManager')
 sessionManager.close()
